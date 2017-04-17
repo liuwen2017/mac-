@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ie中内存泄漏</title>
+</head>
+<body>
+<!--
+    内存泄漏：当发生内存泄漏的时候，变量会一直都存储在内存中，占用cpu，直到页面关闭才会销毁
+            会严重导致页面的内容渲染速度变慢
+-->
+    <div id="div1">我是一个用于测试的div</div>
+</body>
+<script>
+    window.onload = function (){
+        var oDiv = document.getElementById('div1');
+
+        oDiv.onclick = function (){
+            alert(oDiv.id);
+        }
+
+
+        /*
+         在上面的代码中，当我们点击元素的时候，会引用点击事件的事件处理函数里面的内容，
+         而在事件处理函数内部又引用了一次外部的元素id。
+         在ie中，如果出现内外相互引用的情况，就容易出现内存泄漏。
+         */
+
+
+//        解决内存泄漏的方法一：在关闭的时候将事件清空
+        /*windoww.onunload = function (){
+            oDiv.onclick = null;
+        }*/
+
+
+
+
+    }
+    //        解决内存泄漏的方法之二：将事件处理函数内部对外部的引用拿到外面来获取
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+
+            var id = oDiv.id;
+
+            oDiv.onclick = function () {
+                alert(id);
+            }
+
+            //在使用完成后立刻将oDiv这个对象清空
+            oDiv = null;
+        }
+
+
+</script>
+</html>

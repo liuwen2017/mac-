@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="d1"></div>
+	<div id="d2"></div>
+	<div id="d3"></div>
+</body>
+<script>
+	window.onload = function () {
+		console.time('time');
+		var oDiv1 = document.getElementById('d1');
+		var oDiv2 = document.getElementById('d2');
+		var oDiv3 = document.getElementById('d3');
+		console.timeEnd('time');
+
+		// 此时需要的时间明显少于上面的写法
+		console.time('time2')
+		var doc = document;
+		var oDiv11 = doc.getElementById('d1');
+		var oDiv22 = doc.getElementById('d2');
+		var oDiv33 = doc.getElementById('d3');
+		console.timeEnd('time2')
+	}
+</script>
+</html>

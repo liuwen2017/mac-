@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="d1"></div>
+	<script>
+		window.onload = function () {
+			var oDiv = document.getElementById("d1");
+			var str = '';
+			//console.time('hello');
+			// for(var i =0;i<5000;i++){
+			// 	oDiv.innerHTML += 'a';
+			// }
+			// console.timeEnd('hello');
+
+			console.time('hello');
+			for(var i=0;i<5000;i++){
+				str += 'a';  //尽可能的减少dom 与js 的接触
+			}
+
+			oDiv.innerHTML = str;
+			console.timeEnd('hello');
+		}
+	</script>
+</body>
+</html>

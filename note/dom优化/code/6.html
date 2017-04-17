@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 重排重绘性能测试 -->
+	<ul id="ul"></ul>
+</body>
+<script>
+	window.onload = function () {
+		var oUl = document.getElementById("ul");
+		console.time('time');
+		// 创建5000个li并且向里面添加内容
+		for(var i=0;i<5000;i++){
+			var lis = document.createElement('li');
+			
+			// 此时给li添加一些样式 - 分别添加
+			lis.style.width = '100px';
+			lis.style.height = '100px';
+			lis.style.background = 'red';
+			//如果采用下面的写法则可以将所需时间缩短
+			//lis.style.cssText = 'width:100px;height:100px;background:red;';
+
+
+			oUl.appendChild(lis);
+		}
+		
+		console.timeEnd('time');
+	}
+</script>
+</html>

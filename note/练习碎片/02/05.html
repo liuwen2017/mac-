@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js闭包用处之二演示</title>
+</head>
+<body>
+<ul>
+    <li>111111111111</li>
+    <li>111111111111</li>
+    <li>111111111111</li>
+</ul>
+</body>
+<script>
+  /*  window.onload = function () {
+        var lis = document.getElementsByTagName('li');
+
+        for(var i=0;i<lis.length;i++){
+            lis[i].onclick = function(){
+                //此时无论点击哪一个li，都会弹出3即最后一个i值
+                //因为当我们点击的时候li的时候循环已经结束了
+                alert(i);
+            }
+        }
+    }
+    */
+//    此时为了解决这种问题，可以采用闭包的方式来解决问题
+
+ /*   var lis = document.getElementsByTagName('li');
+    //此时将循环的i当做参数传递进独立的空间中
+    for(var i=0;i<lis.length;i++){
+        (function (i){
+            lis[i].onclick = function (){
+                alert(i);
+            }
+        })(i);
+    }
+*/
+
+// 除了上面的写法以外，还可以采用return的方式
+    var lis = document.getElementsByTagName('li');
+    for(var i=0;i<lis.length;i++){
+        lis[i].onclick = (function(i){
+            return function (){
+                alert(i);
+            }
+        })(i);
+    }
+
+//    上面的写法，在每次循环时，都会将i的值传入进函数中，并且函数通过参数的形式将i存进了内存中。
+</script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul"></ul>
+</body>
+<script>
+	var oUl = document.getElementById("ul");
+
+	// 使用浏览器时间调试工具
+	console.time('time1');
+	for(let i=0;i<5000;i++){
+		var  oLi = document.createElement('li');
+		oUl.appendChild(oLi);
+	}
+
+	console.timeEnd('time1');
+
+
+	console.time('time2');
+	var li = '';
+	for(let i=0;i<5000;i++){
+		li +='<li></li>'
+	}
+	oUl.innerHTML = li;
+	console.timeEnd('time2');
+</script>
+</html>

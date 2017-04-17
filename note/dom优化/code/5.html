@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 重排重绘性能测试 -->
+	<ul id="ul"></ul>
+</body>
+<script>
+	window.onload = function () {
+		var oUl = document.getElementById("ul");
+		console.time('time');
+		// 创建5000个li并且向里面添加内容
+		for(var i=0;i<5000;i++){
+			var lis = document.createElement('li');
+			lis.innerHTML = 'li';//①
+			oUl.appendChild(lis);//②
+		}
+		/*
+			此时将①放在②的前面，效率是最佳的，如果将②放在①的前面，就会触发重排重绘，效率就会下降
+			原因是：当在li中添加内容的时候，li已经顺利的插入到了ul中，并且已经渲染在了页面中，
+			这时向li中添加内容，就会触发重排重绘
+		*/
+		console.timeEnd('time');
+	}
+</script>
+</html>

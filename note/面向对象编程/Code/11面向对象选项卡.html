@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#div1 div {
+			width: 300px;
+			height: 300px;
+			border:1px solid red;
+			display: none;
+		}
+		input.active {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<input type="button" value="1" class="active">
+		<input type="button" value="2">
+		<input type="button" value="3">
+
+		<div style="display: block;">111111</div>
+		<div>222222</div>
+		<div>333333</div>
+	</div>
+</body>
+<script>
+	window.onload = function () {
+		var oParent = document.getElementById('div1');
+		var oInput = oParent.getElementsByTagName('input');
+		var oDiv = oParent.getElementsByTagName('div');
+
+		for(var i = 0;i<oInput.length;i++){
+			oInput[i].index = i;
+			oInput[i].onclick = function () {
+				for(var i=0;i<oInput.length;i++){
+					oInput[i].className = '';
+					oDiv[i].style.display = 'none';
+				}
+				this.className = 'active';
+				oDiv[this.index].style.display = 'block';
+			}
+		}
+	}
+</script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#d1 div,#d2 div {
+			width: 300px;
+			height: 300px;
+			border: 1px solid red;
+			display: none;
+		}
+		.active {
+			background: red;
+		}
+	</style>
+	<script>
+		window.onload= function () {
+			var t1 = new Tab('d1');
+			t1.init();
+			t1.autoplay();
+
+		}
+		//创建一个构造函数
+		function Tab(uid){
+			this.oParent = document.getElementById(uid);
+			this.oInput = this.oParent.getElementsByTagName('input');
+			this.oDiv = this.oParent.getElementsByTagName('div');
+			this.oNow = 0;
+		}
+
+		//创建初始化函数
+		Tab.prototype.init = function (){
+			var This =this;
+			for(var i=0;i<this.oInput.length;i++){
+				this.oInput[i].index = i;
+				this.oInput[i].onclick = function () {
+					This.change(this);
+				}
+			}
+		}
+
+		//创建变化函数
+		Tab.prototype.change = function (obj) {
+			for(var i=0;i<this.oInput.length;i++){
+				this.oInput[i].className = '';
+				this.oDiv[i].style.display = 'none';
+			}
+			obj.className = 'active';
+			this.oDiv[obj.index].style.display = 'block';
+		}
+
+		//创建自动切换选项卡函数
+		Tab.prototype.autoplay = function (){
+			var This = this;
+			setInterval(function (){
+				if(This.oNow == This.oInput.length-1){
+					This.oNow = 0;
+				}else {
+					This.oNow++;
+				}
+				for(var i=0;i<This.oInput.length;i++){
+					This.oInput[i].className = '';
+					This.oDiv[i].style.display = 'none';
+				}
+				This.oInput[This.oNow].className = 'active';
+				This.oDiv[This.oNow].style.display = 'block';
+			},2000)
+		}
+	</script>
+</head>
+<body>
+	<div id="d1">
+		<input type="button" value="1" class="active">
+		<input type="button" value="2">
+		<input type="button" value="3">
+
+		<div style="display: block;">111111</div>
+		<div>222222</div>
+		<div>333333</div>
+	</div>
+	<div id="d2">
+		<input type="button" value="1" class="active">
+		<input type="button" value="2">
+		<input type="button" value="3">
+
+		<div style="display: block;">111111</div>
+		<div>222222</div>
+		<div>333333</div>
+	</div>
+</body>
+</html>

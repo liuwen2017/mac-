@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		function CreatePerson(name){
+			
+			
+			this.name = name;
+			
+		}
+		
+		//原型需要挂载在构造函数下面  --  使用原型之后，构造函数中的方法在内存中就存在了一份
+		CreatePerson.prototype.showName = function (){
+			alert(this.name);
+		}
+		//以上的调用对象方法可以进行简单的整理
+		var p1 = new CreatePerson('小明');
+		var p2 = new CreatePerson('小强');
+
+		p1.showName();
+		p2.showName();
+	</script>
+</body>
+</html>

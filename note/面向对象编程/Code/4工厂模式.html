@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		// 当new去调用一个函数：这个时候函数中的this就是创建出来的对象
+		// 而且函数的返回值就直接是this了(隐式返回)
+
+		//new 后面的函数叫做构造函数 
+		function CreatePerson(name){
+			
+			//此时就不需要创建对象，因为隐式返回this，而this就指向对象，此时可以把之前的obj
+			//换成this
+			this.name = name;
+			this.showName = function () {
+				alert(this.name);
+			}
+			//此时这一块就不需要在返回了，因为使用new调用隐式返回this 
+			//return obj;
+		}
+		//将结果传入，并且调用对象的方法
+		//createPerson('小明').showName();
+		//createPerson('小强').showName();
+
+		//以上的调用对象方法可以进行简单的整理
+		var p1 = new CreatePerson('小明');
+		var p2 = new CreatePerson('小强');
+
+		p1.showName();
+		p2.showName();
+	</script>
+</body>
+</html>

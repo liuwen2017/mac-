@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//原型：去改写对象下面公用的方法或者属性，让公用的方法或者属性在内存中存在一份(提高性能)
+		var arr = [1,2,3,4,5];
+
+		arr.sum = function () {
+			var result = 0;
+			for(var i =0;i<this.length;i++){
+				result +=this[i];
+			}
+			return result;
+		}
+
+		alert(arr.sum());
+	</script>
+</body>
+</html>

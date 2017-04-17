@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		
+		var mObj = new Object();
+
+		mObj.name = '小明';
+
+		mObj.showName = function(){
+
+			alert(this.name);
+		}
+		//此时谁在函数的前面调用函数this就指向谁，如果函数前面没有对象，就指向window
+		mObj.showName();
+	</script>
+</body>
+</html>

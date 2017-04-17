@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6暂时性死区</title>
+</head>
+<body>
+	
+</body>
+<script>
+	console.log(a);  // undefined
+	var a = 10;  
+	console.log(a); // 10
+
+/**
+	出现上面的现象的原因是因为代码提升
+**/
+	// console.log(b);// b is not defined
+	let b = 20; 
+	console.log(b); // 20
+/**
+	使用let 不会存在变量死区
+**/
+</script>
+</html>

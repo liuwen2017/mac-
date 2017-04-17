@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var a = ['1','2','3'];
+		var b = ['1','2','3'];
+
+		// alert(a == b); //false  
+
+
+
+		var a = 5;
+		var b = a;
+		b +=3;
+		//alert(b);// 8 
+		//alert(a);//5 值没有改变
+		//基本类型特点：赋值的时候只是值的复制
+
+		var a = ['1','2','3'];
+		var b = a;
+		b.push('4');
+		//alert(b);//1 ,2 ,3 ,4
+		//alert(a);// 此时 a也变成了1，2，3，4
+		//对象类型 ：赋值不仅是值的复制，而且也是引用的传递
+
+
+		var a = [1,2,3];
+		var b = a;
+		b = [1,2,3,4];
+		//alert(b); // [1,2,3,4]
+		alert(a);//[1,2,3]  
+		//此时，b相当于重新赋值存储为1，2，3，4，并不是对原有内容的修改，所以不会再影响a
+
+
+		/*
+			总结：普通类型的数据比较 只需要值相同即可
+			而对象类型的比较必须是值相同，在内存中引用也相同才行。
+		*/
+	</script>
+</body>
+</html>

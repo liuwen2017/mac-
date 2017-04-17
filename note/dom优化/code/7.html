@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="d1"></div>
+</body>
+<script>
+	var oDiv = document.getElementById('d1');
+	setInterval(function () {
+		//此时定时器会不断的运行，而在运行的时候会不断的执行offset的dom操作。我们可以将offset获取
+		// 通过一个变量来获取
+		oDiv.style.left = oDiv.offsetLeft +  1 + 'px';
+		oDiv.style.top = oDiv.offsetTop +  1 + 'px';
+	},30);
+
+	/*代码可以进行如下更改
+		var oDiv = document.getElementById('d1');
+		var l = oDiv.offsetLeft;
+		var t = oDiv.offsetTop;
+		setInterval(function(){
+			l++;
+			t++;
+			oDiv.style.left = l+'px';
+			oDiv.style.Top = t + 'px';
+		},30)
+
+	通过这段代码的更改也可以实现上面为注释代码的效果，但是性能上要好很多
+	*/
+
+</script>
+</html>

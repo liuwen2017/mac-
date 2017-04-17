@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#container div {
+			width: 300px;
+			height: 300px;
+			border:1px solid red;
+			display: none;
+		}
+		input.active {
+			background: red;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="container">
+		<input type="button" value="1" class="active">
+		<input type="button" value="2">
+		<input type="button" value="3">
+
+		<div style="display: block;">1111111</div>
+		<div>2222222</div>
+		<div>3333333</div>
+	</div>
+</body>
+<script>
+	window.onload = function () {
+		var t1 = new Tab();
+		t1.init();
+	}
+
+	//创建一个构造函数
+	function Tab() {
+		this.oParent = document.getElementById('container');
+		this.oInput = this.oParent.getElementsByTagName('input');
+		this.oDiv = this.oParent.getElementsByTagName('div');
+	}
+	Tab.prototype.init = function () {
+		var This = this;
+		for(var i=0;i<this.oInput.length;i++){
+			this.oInput[i].index = i;
+			this.oInput[i].onclick = function () {
+				This.change(this);
+			}
+		}
+	}
+
+	Tab.prototype.change = function (obj) {
+		for(var i=0;i<this.oInput.length;i++){
+			this.oInput[i].className = '';
+			this.oDiv[i].style.display = 'none';
+		}
+		obj.className = 'active';
+		this.oDiv[obj.index].style.display = 'block';
+	}
+</script>
+</html>

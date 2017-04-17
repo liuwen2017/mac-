@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>不允许重复声明</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 10;
+	var a = 20;
+	console.log(a); // 20 
+
+	let b = 20;
+	let b = 10;
+	console.log(b); // Identifier 'b' has already been declared
+
+/**
+	此时需要注意的是，使用let声明变量并不允许重复声明
+**/
+</script>
+</html>

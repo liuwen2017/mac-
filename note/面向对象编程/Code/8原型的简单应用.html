@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var arr = [1,2,3,4];
+		var arr2 = [1,2,3,4,5,6];
+		//想要通过原形来提高性能，需要写在构造函数的下面
+		Array.prototype.sum = function () {
+			var result = 0;
+			for(var i =0;i<this.length;i++){
+				result +=this[i];
+			}
+			return result;
+		}
+
+		alert(arr.sum());
+		alert(arr2.sum());
+	</script>
+</body>
+</html>

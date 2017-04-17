@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul id="ul"></ul>
+</body>
+<script>
+	var oUl = document.getElementById("ul");
+	// 测试通过innerHTML来实现标签的添加
+	console.time('time');
+	var li = '';
+	for(let i=0;i<5000;i++){
+		li +='<li></li>'
+	}
+	oUl.innerHTML = li;
+	console.timeEnd('time');
+</script>
+</html>

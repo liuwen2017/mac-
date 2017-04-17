@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#container div ,#container2 div{
+			width: 300px;
+			height: 300px;
+			border: 1px solid red;
+			display: none;
+		}
+		.active {
+			background: red;
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			var t1 = new Tab('container');
+			t1.init();
+
+			var t2 = new Tab('container2');
+			t2.init();
+			t2.autoplay();
+		}
+		//创建一个构造函数
+		function Tab(uid) {
+			this.oParent = document.getElementById(uid);
+			this.oInput = this.oParent.getElementsByTagName('input');
+			this.oDiv = this.oParent.getElementsByTagName('div');
+			this.iNow=  0;
+		}
+
+		//给tab函数添加方法
+		Tab.prototype.init = function () {
+			var This = this;
+			for(var i=0;i<this.oInput.length;i++){
+				this.oInput[i].index = i;
+				this.oInput[i].onclick = function () {
+					This.change(this);
+				}
+			}
+		}
+
+		Tab.prototype.change = function (obj) {
+			for(var i =0;i<this.oInput.length;i++){
+				this.oInput[i].className = '';
+				this.oDiv[i].style.display = 'none';
+			}
+			obj.className = 'active';
+			this.oDiv[obj.index].style.display = 'block';
+		}
+
+		Tab.prototype.autoplay = function () {
+			var This = this;
+			setInterval(function () {
+				if(This.iNow == This.oInput.length-1){
+					This.iNow = 0;
+				}else {
+					This.iNow++;
+				}
+				for(var i =0;i<This.oInput.length;i++){
+					This.oInput[i].className = '';
+					This.oDiv[i].style.display = 'none';
+				}
+				This.oInput[This.iNow].className = 'active';
+				This.oDiv[This.iNow].style.display = 'block';
+			},2000)
+		}	
+	</script>
+</head>
+<body>
+	<div id="container">
+		<input type="button" value="1" class="active">
+		<input type="button" value="2">
+		<input type="button" value="3">
+
+		<div style="display: block;">111111</div>
+		<div>222222</div>
+		<div>333333</div>
+	</div>
+	<div id="container2">
+		<input type="button" value="1" class="active">
+		<input type="button" value="2">
+		<input type="button" value="3">
+
+		<div style="display: block;">111111</div>
+		<div>222222</div>
+		<div>333333</div>
+	</div>
+</body>
+</html>

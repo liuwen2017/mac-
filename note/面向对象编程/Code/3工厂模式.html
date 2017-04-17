@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		//工厂模式  -- 封装函数
+		//将用到的不同的内容当做参数传入
+		function createPerson(name){
+			var obj = new Object();
+			//将obj对象的name属性 赋值为 传入的不同的参数值
+			obj.name = name;
+			obj.showName = function () {
+				alert(this.name);
+			}
+			//将对象返回到函数本身
+			return obj;
+		}
+		//将结果传入，并且调用对象的方法
+		//createPerson('小明').showName();
+		//createPerson('小强').showName();
+
+		//以上的调用对象方法可以进行简单的整理
+		var p1 = createPerson('小明');
+		var p2 = createPerson('小强');
+
+		p1.showName();
+		p2.showName();
+	</script>
+</body>
+</html>
