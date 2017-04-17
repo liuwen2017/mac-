@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6 冻结对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+// 创建一个冻结对象
+	const Person = Object.freeze({});
+	console.log(Person);
+// 测试--是否可以给已经冻结的对象添加属性和方法
+	Person.name = 'yanyan';
+	Person.sayName = function(){
+		alert(this.name);
+	}
+// 打印输出
+	console.log(Person.name);  // undefines
+	console.log(Person.sayName); // undefined
+
+	// Person.sayName(); // Person.sayName() is not function
+
+	
+</script>
+</html>

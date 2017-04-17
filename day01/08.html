@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冻结对象</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const Person = Object.freeze({
+		name:'liuwen',
+		age:19,
+		sayName:function(){
+			alert(this.name);
+		}
+	});
+
+	Person.sayName(); // liuwen
+// 输出测试看一下属性是否是可以输出的
+	console.log(Person.name); // liuwen
+
+
+/**
+	冻结对象在创建的时候定义好的属性和方法可以继续使用
+**/
+
+// 测试更改冻结对象的属性
+	Person.name = 'small yellow';
+	console.log(Person.name); // liuwen
+
+// 测试更改年级
+	Person.age = 20;
+	console.log(Person.age); // 19
+
+// 测试更改方法
+	Person.sayName = function(){
+		alert(123);
+	}
+Person.sayName();	// liuwen	
+/**
+	经上测试，冻结对象将不能够进行属性和方法的更改
+**/
+
+
+// 给对象添加属性
+	Person.test = 'this is test attr';
+	console.log(Person.test); // undefined 
+
+/**
+	上面的测试结果为，给冻结的对象添加方法，发现无法添加
+**/
+</script>
+</html>
