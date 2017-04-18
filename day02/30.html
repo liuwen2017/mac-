@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单提交</title>
+</head>
+<body>
+	<form id="test-form" onsubmit='return checkform()'>
+		<input type="text">
+		<input type="password" id="pwd">
+		<input type="submit" value="提交">
+	</form>
+</body>
+<script>
+	function checkform(){
+		var form = document.getElementById('test-form');
+		//在此处可以进行修改输入框等一些操作
+		// 如果用户输入错误，可以返回false,那么就会停止提交
+		var pwd = document.getElementById('pwd');
+		// console.log(toMD5(pwd.value));
+
+		alert(1111);
+		alert(toMD5(pwd.value));
+		return false;
+	}
+</script>
+</html>

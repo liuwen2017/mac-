@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6 class 类</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Student {
+		constructor (name){
+			this.name = name;
+		}
+// 将 方法放置在原型链上，通过继承的方式来实现方法的添加
+		hello() {
+			alert('hello,'+this.name + '!');
+		}
+	}
+
+// 将这个类实例化
+	var s1 = new Student('小明');
+	// s1.hello();
+	console.log(s1);
+
+/**
+	在es6中继承通过extend来实现
+**/
+	class sanyou extends Student {
+		constructor (name,grade){
+/**
+	在此处需要注意，必须使用super 方法来进行设置，否则Student 类无法初始化
+**/
+			super(name);
+			this.grade = grade;
+		}
+
+		sayGrade() {
+			alert('hello,my name is '+ this.name+',Im at grade '+this.grade);
+		}
+	}
+
+	var s2 = new sanyou('小红','三年一班');
+	s2.sayGrade();
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>利用html5 file API来进行客户端的文件上传以及文件预览</title>
+	<style>
+		.content {
+			width: 500px;
+			height: 500px;
+			border:1px solid red;
+			/*background-color: #ccc;*/
+			/*background-image: url(.);*/
+		}
+	</style>
+</head>
+<body>
+	<form action="" method="post" enctype='multipart/form-data' onsubmit="return checkForm()">
+		<input type="file" name="img" id="img-file">
+		<input type="submit" value="提交">
+	</form>
+
+	<hr>
+	<div class="box">
+		<ul>
+			<li id="name">文件名</li>
+			<li id="size">文件大小</li>
+			<li id="change">文件添加时间</li>
+		</ul>
+
+		<div class="content" id="content"></div>
+	</div>
+</body>
+<script>
+	// function checkForm(){
+	// 	var img = document.getElementById('img-file');
+	// 	// console.log(img.name);
+	// 	// alert(111);
+	// 	var file = img.files[0];
+	// 	console.log(file);
+	// 	return false;
+	// }
+
+	var img = document.getElementById('img-file');
+	var imgname = document.getElementById('name');
+	var size = document.getElementById('size');
+	var change = document.getElementById('change');
+	var content = document.getElementById('content');
+	img.addEventListener('change',function(){
+		//图片上传后清除盒子原本的背景图像
+		content.style.backgroundImage = '';
+		content.style.backgroundColor = '';
+
+		//获取上传的文件的信息
+		var file = img.files[0];
+		// console.log(file.name);
+/**
+	此时返回的file是一个对象，根据这个对象获取上传图片的相关信息
+**/
+		imgname.innerHTML = '文件名:'+file.name;
+		size.innerHTML = '文件大小:'+file.size / 1024;
+		change.innerHTML = '文件修改日期:'+file.lastModifiedDate;
+// 读取文件
+	 var reader = new FileReader();
+	 console.log(reader);
+	 reader.onload = function(e){
+	 	var data = e.target.result;
+	 	console.log(data);
+	 	// content.backgroundImage = 'url(./'+data+')';
+	 }
+	  reader.readAsDataURL(file);
+	});
+</script>
+</html>

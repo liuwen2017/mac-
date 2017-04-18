@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单提交测试</title>
+</head>
+<body>
+	<form action="test.php" method="get" id="myform">
+		<input type="text" id="user" name="user"> <br>
+		<input type="password" id="pwd" name="pwd"> <br>
+		<input type="submit" value="提交">
+	</form>
+</body>
+<script>
+	var form = document.getElementById('myform');
+	form.onsubmit = function () {
+		var pwd = document.getElementById('pwd');
+		pwd.value = toMD5(pwd.value);
+
+		alert(111);
+	}
+</script>
+</html>

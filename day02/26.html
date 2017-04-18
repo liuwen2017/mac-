@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取单选或者复选结果</title>
+</head>
+<body>
+	<label>
+		<input type="radio" name="sex" id="man" value="1">男
+	</label>
+	<label>
+		<input type="radio" name="sex" id="woman" value="2">女
+	</label>
+</body>
+<script>
+// 获取值
+	var man = document.getElementById('man');
+	var woman = document.getElementById('woman');
+/**
+	单选或者复选.value获取的永远是设置好的值
+**/
+	console.log(man.value); // 1
+	console.log(woman.value); // 2
+
+// 而是应该使用.checked ,返回的结果为true 或者false
+	man.onclick = function(){
+		console.log(man.checked);
+	}
+	woman.onclick = function(){
+		console.log(woman.checked);
+	}
+
+	console.log(man.checked);
+	console.log(woman.checked);
+
+</script>
+</html>
