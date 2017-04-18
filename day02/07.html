@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>更改alert</title>
+</head>
+<body>
+	
+</body>
+<script>
+	"use strict";
+// 把原本的alert赋值给变量 old_alert
+	var old_alert = window.alert;
+	window.alert = function () {};
+
+	alert(123);// 此时会没有效果
+ // 恢复alert方法
+	window.alert = old_alert;
+	alert(123);
+</script>
+</html>

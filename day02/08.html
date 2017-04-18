@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>命名空间</title>
+</head>
+<body>
+	
+</body>
+<script>
+// 创建命名空间，避免变量污染
+	var myName = {};
+	myName.name = 'yanyan';
+	myName.age = 19;
+
+	myName.foo = function () {
+		return foo;
+	}
+
+// 将所有的变量和方法绑定到对象上，那么此时这些变量和方法就全部在myName的命名空间中
+// 不会和其他文件的变量和方法产生冲突 。
+	console.log(myName.name);
+</script>
+</html>

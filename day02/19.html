@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>箭头函数和this</title>
+</head>
+<body>
+	
+</body>
+<script>	
+	"use strict";
+// 创建一个对象
+	var xiaoming = {
+		name:'小明',
+		birth:1990,
+		age:getAge
+	}
+
+	function getAge(){
+		return new Date().getFullYear() - this.birth;
+	}
+
+	var x = xiaoming.age();
+	console.log(x); // 27 
+	getAge(); // birth of undefined 
+</script>
+</html>

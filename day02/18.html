@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6箭头函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+/**
+	ES6 新增函数  -- 》  Arrow Function
+
+**/
+
+	x => x * x;
+
+// 上面的代码相当于  
+	// function(x){
+	// 	return x * x;
+	// }
+/**
+	箭头函数相当于匿名函数，并且简化了函数定义。
+	箭头函数有两种格式，一种如同上面那样，只有一个表达式，连{} 和 return都省略掉了。
+	另外一种可以包含多条语句，这时就不能省略{}和return 
+**/
+	x => {
+		if (x>0){
+			return x * x;
+		}
+		else {
+			return -x * x;
+		}
+	}
+/**
+	如果参数不是一个，那么就使用括号括起来
+
+**/
+	(x,y) => x * y + y * y;
+
+// 如果没有参数
+	() =>3.14;
+// 可变参数
+	(x,y, ... rest) =>{
+		var i ,sum= x + y;
+		for (i=0;i<rest.length;i++){
+			sum += rest[i];
+		}
+		return sum ;
+	}
+
+	// x = >({foo:x});
+</script>
+</html>

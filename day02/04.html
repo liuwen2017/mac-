@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6 for ... of</title>
+</head>
+<body>
+	
+</body>
+<script>
+// 创建不同类型的对象 -- 数组，map，set  
+// 上面这三种数据类型在es6中都属于iterable类型
+	var a = ['a','b','c'];
+	var s = new Set(['a','b','c']);
+	var m = new Map([[1,'a'],[2,'b'],[3,'c']]);
+
+// 通过for...of来进行遍历
+	for(var x of a){
+		console.log(x); // a b c 
+	}
+
+	console.log('----------------------------------------------');
+
+
+	for(var x of s){
+		console.log(x); // a b c
+	}
+
+	console.log('----------------------------------------------');
+
+
+	for(var x of m){
+		console.log(x[0] + '=' + x[1]); // 1=a 2=b 3=c
+		// console.log(x); [1,a] [2,b] [3,c]
+	}
+</script>
+</html>

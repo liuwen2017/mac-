@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>This 的问题</title>
+</head>
+<body>
+	
+</body>
+<script>
+	"use strict";
+	var xiaoming = {
+		name:'小明',
+		birth:1990,
+		age:function(){
+			var y =new Date().getFullYear();
+			// console.log(this);
+			return y - xiaoming.birth;
+		}
+	}
+
+	var a = xiaoming.age();
+	console.log(a); // 27 运行正常。
+/**
+	下面这种写法，将导致this，在严格模式下指向undefined ，而非严格模式下指向window
+**/
+	var b = xiaoming.age;
+	var x = b();
+	console.log(x);
+</script>
+</html>

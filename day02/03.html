@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Map数据类型</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/**
+		Map() 对象
+		方法：
+			get() 获取
+			set() 设置
+			has() 检测
+			delete() 删除
+	**/
+// 创建对象
+	var m = new Map([['tom',19],['jack',20]]);
+
+// 获取值
+	console.log(m.get('tom')); // 19
+
+// 设置值
+	m.set('test',20);
+// 检测
+	var a= m.has('test');
+	console.log(a); // true 
+	console.log(m); // 在m对象中，test存在说明设置和检测都已经成功
+// 通过set修改已经存在的值
+	m.set('jack',99);
+	console.log(m); // 在m对象中，jack的值已经变为99，说明修改成功
+// 删除数据
+	m.delete('jack');
+	console.log(m); // 在m对象中，jack已经被删除，说明删除成功
+</script>
+</html>

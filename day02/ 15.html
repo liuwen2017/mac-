@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		<li>aaaaa</li>
+		<li>aaaaa</li>
+		<li>aaaaa</li>
+	</ul>
+</body>
+<script>
+	var lis = document.getElementsByTagName('li');
+	for (var i=0;i<lis.length;i++){
+		lis[i].onclick = function(){
+			alert(i);
+		}
+	}
+</script>
+</html>

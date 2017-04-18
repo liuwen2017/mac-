@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6--foreach方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+// ES6. foreach方法
+// 创建数组类型 set类型 array类型
+	var a = ['a','b','c'];
+	var s = new Set(['a','b','c']);
+	var m = new Map([[1,'a'],[2,'b'],[3,'c']]);
+
+// 采用foreach遍历
+	a.forEach(function(element,index,array){
+		console.log(a[index]);// a b c
+	});
+
+	console.log('-----------------------------------');
+
+	s.forEach(function(element,sameelement ,set){
+		//console.log(set); // 此时打印出来的是set对象本身
+		console.log(element); // a b c
+	});
+
+	console.log('-----------------------------------');
+
+	m.forEach(function(value,key,map){
+		// console.log(value); // a b c
+		// console.log(key); // 1 2 3
+		console.log(map); // 输出了三次对象本身
+	});
+</script>
+</html>

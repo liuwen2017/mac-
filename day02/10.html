@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>apply</title>
+</head>
+<body>
+	
+</body>
+<script>
+	"use strict";
+	function getAge(a){
+		 var y = new Date().getFullYear();
+   		 // console.log(a); 
+   		 // console.log(this);
+   		 return y - this.birth;
+	}
+
+	var xiaoming = {
+		name:'小明',
+		birth:1990,
+		age:getAge
+	}
+
+	var a = xiaoming.age();
+	//console.log(a);// 27 结果正常
+	//getAge();//单独调用函数为undefined 并且报错，提示birth is undefined
+/**
+	getAge.apply(). 使用 apply方法，手动的设置this的指向,apply 第一个参数是指向哪个对象
+	第二个参数是传入到函数种的参数
+**/
+	var x = getAge.apply(xiaoming,['hello,world']);
+	console.log(x); // 27 
+</script>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>返回一个函数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function lazy_sum(arr){
+		var sum = function (){
+			return arr.reduce(function(x,y){
+				return x + y;
+			});
+		}
+	}
+</script>
+</html>

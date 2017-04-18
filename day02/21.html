@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>generator</title>
+</head>
+<body>
+	
+</body>
+<script>
+	"use strict";
+/**
+	generator 定义函数可以多次返回
+
+**/
+	function* fn1(){
+		console.log('hello,world --- 1');
+		yield 'hello,world';
+		console.log('hello,world --- 2');
+		yield 'test text';
+		console.log('hello,world --- 3');
+		return 10 + 20;
+	}
+
+	// var a = fn1();
+	// // console.log(a); 
+	// var x = a.next();
+	// alert(x.value);
+	// console.log(a.next());
+/**
+	调用generator 函数跟调用一个普通函数并不一样，
+	如上，fn1() 只是创建了generator对象，但是想要调用可以采用上面的方法.next()  
+
+	next()方法会执行generator的代码，然后，每次遇到yield x;就返回一个对象{value: x, done: true/false}，
+	然后“暂停”。返回的value就是yield的返回值，done表示这个generator是否已经执行结束了。
+	如果done为true，则value就是return的返回值。
+
+	当执行到done为true时，这个generator对象就已经全部执行完毕，不要再继续调用next()了。
+**/
+
+
+
+/**
+	除了上述的方法外，还有另外的一种方法是使用for ... of 来获取值
+**/
+
+	for(var x of fn1()){
+		console.log(x);
+	}
+
+
+
+
+</script>
+</html>

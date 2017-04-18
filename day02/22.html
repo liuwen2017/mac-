@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		
+</body>
+<script>
+/**
+	在js中，存在三种包装对象，number,boolean,string 这三种数据从类型都有包装对象
+	既是采用构造函数的写法创建的对象
+**/
+	var a = new String('hello,world');
+
+	if(a === 'hello,world'){
+		alert('11111')
+	}else {
+		alert('22222');
+	}
+/**
+	通过构造函数方式创建对象看似与直接量创建的数据类型一样，但是其实采用构造函数函数创建出来的数据
+	类型就已经变成了object，所以使用===进行判断，就会返回false
+	
+**/
+</script>
+</html>

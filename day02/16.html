@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组求和</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function sum(arr){
+		return arr.reduce(function(x,y){
+			return x + y;
+		});
+	}
+// 创建一个数组，用来测试求和函数
+	var arr = [1,2,3,4,5];
+
+	console.log(sum(arr)); // 15
+</script>
+</html>

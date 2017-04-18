@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组求和</title>
+</head>
+<body>
+	
+</body>
+<script>
+/**
+	刚才的代码中，数组求和的函数立即执行，但是如果在应用中并不需要立即求和，而是在指定的位置求和，可以采用
+	下面的方式
+**/
+	function lazy_sum(arr){
+		var sum = function(){
+			return arr.reduce(function(x,y){
+				return x + y;
+			});
+		}
+
+		return sum;
+	}
+
+ // 创建数组，用来测试求和函数
+ 	var arr = [1,2,3,4];
+ 	var x = lazy_sum(arr);
+ 	console.log(x);
+ 	console.log(x()); // 10  
+
+/**
+	上面的代码此时就变成了只在需要的时候会执行
+**/
+</script>
+</html>

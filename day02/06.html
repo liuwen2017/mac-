@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ES6 rest参数</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fn1(a,b,...rest){
+		console.log(a);
+		console.log(b);
+		console.log(rest);
+	}
+
+	// 调用fn1
+	fn1(10,20,100,200,300);
+	console.log('----------------');
+	fn1(10,20);
+/**
+	上述第一次函数输出结果为
+		10
+		20
+		[100, 200, 300]
+**/
+/**
+	rest参数是es6中新增加的参数，放在函数形参的最后，用来预防参数的多传或者少传。
+	例如，如果像上面那样，传参的时候多传了几个实参，那么超出的部分全部会变成一个数组传递到rest中
+	如果传入的参数较少，那么rest参数也不会为undefined,而是会为一个空数组
+**/
+</script>
+</html>

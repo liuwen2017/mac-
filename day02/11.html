@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>call方法</title>
+</head>
+<body>
+	
+</body>
+<script>
+	"use strict";
+	function getAge(a){
+		 var y = new Date().getFullYear();
+   		 console.log(a); 
+   		 console.log(this);
+   		 return y - this.birth;
+	}
+
+	var xiaoming = {
+		name:'小明',
+		birth:1990,
+		age:getAge
+	}
+	
+	var x =getAge.call(xiaoming,'hello,world');
+	console.log(x);// hello,world 
+	
+</script>
+</html>
